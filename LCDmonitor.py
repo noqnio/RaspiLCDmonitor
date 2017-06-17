@@ -32,7 +32,7 @@ while 1:
 
     delta = min(obs.next_setting(sun).datetime(),obs.next_rising(sun).datetime()) - datetime.utcnow()
 
-    riseset = str(delta.seconds//3600) + ":" + str(delta.seconds%3600//60)
+    riseset = str(delta.seconds//3600) + ":" + str(delta.seconds%3600//60).zfill(2)
     temp = subprocess.check_output("./gettemp.sh").rstrip()
 
     lcd.clear()
